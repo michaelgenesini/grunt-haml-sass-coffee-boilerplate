@@ -17,5 +17,7 @@ $ grunt server
 
 **Requires Haml, which can be installed with** `gem install haml`
 
+**Requires Grunt Cli, which can be installed with** `sudo npm install -g grunt-cli`
+
 ## Author
 Michael Genesini
