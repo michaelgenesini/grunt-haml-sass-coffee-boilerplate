@@ -10,6 +10,5 @@ $ npm install
 $ grunt server
 ```
 
-# Author
-
+## Author
 Michael Genesini
