@@ -5,7 +5,7 @@ This is a simple grunt workflow that help developers to write less code and to q
 
 ## Usage
 ```shell
-$ git clone https://github.com/
+$ git clone https://github.com/michaelgenesini/grunt-haml-sass-coffee-boilerplate.git
 $ npm install
 $ grunt server
 ```
