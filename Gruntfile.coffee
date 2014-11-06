@@ -36,11 +36,11 @@ module.exports = (grunt) ->
         tasks: ['coffeelint', 'coffee', 'notify:watch']
 
       sass:
-        files: ['assets/stylesheets/**/*.sass']
+        files: ['assets/stylesheet/**/*.sass']
         tasks: ['sass', 'notify:watch']
 
       build:
-        files: ['build/assets/stylesheets/**/*.css', 'build/*.html', 'build/assets/javascript/**/*.js']
+        files: ['build/assets/stylesheet/**/*.css', 'build/*.html', 'build/assets/javascript/**/*.js']
         options:
           livereload: true
 
