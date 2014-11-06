@@ -12,6 +12,7 @@ $ grunt server
 ```
 
 **Requires Sass, which can be installed with** `gem install sass`
+
 **Requires Haml, which can be installed with** `gem install haml`
 
 ## Author
