@@ -9,6 +9,9 @@ module.exports = (grunt) ->
         )
 
     sass:
+      options:
+        style: "compressed",
+        sourceMap: false
       app:
         files:
           'build/assets/stylesheet/style.css': 'assets/stylesheet/style.sass'
@@ -20,11 +23,27 @@ module.exports = (grunt) ->
 
     coffee:
       options:
-        sourceMap: true
-
+        sourceMap: false
       app:
         files:
           'build/assets/javascript/main.js': ['assets/javascript/**/*.coffee']
+
+    copy:
+      main:
+        files: [
+          {
+            expand: true
+            cwd: 'assets/images'
+            src: '**/*'
+            dest: 'build/assets/images'
+          },
+          {
+            expand: true
+            cwd: 'assets/fonts'
+            src: '**/*'
+            dest: 'build/assets/fonts'
+          }
+        ]
 
     watch:
       haml:
@@ -43,6 +62,10 @@ module.exports = (grunt) ->
         files: ['build/assets/stylesheet/**/*.css', 'build/*.html', 'build/assets/javascript/**/*.js']
         options:
           livereload: true
+
+      copy:
+        files: ['assets/images/**/*','assets/fonts/**/*']
+        tasks: ['copy', 'notify:watch']
 
     connect:
       server:
@@ -75,8 +98,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-connect'
+  grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-open'
   grunt.loadNpmTasks 'grunt-coffeelint'
 
-  grunt.registerTask 'default', ['rubyHaml', 'sass', 'coffeelint', 'coffee']
+  grunt.registerTask 'default', ['rubyHaml', 'sass', 'coffeelint', 'coffee','copy']
   grunt.registerTask 'server', ['default', 'connect', 'notify:server', 'open:dev', 'watch']
